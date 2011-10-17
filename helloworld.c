@@ -20,9 +20,26 @@ PHP_FUNCTION(helloearth)
 	RETURN_STRINGL("Hello Earth!\n", 13, 1);
 }
 
+PHP_FUNCTION(hello)
+{
+	char *name;
+	int   name_len;
+	char *ret;
+
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "s", &name, &name_len) == FAILURE) {
+		return;
+	}
+
+	ret = emalloc(6 + 2 + name_len + 1);
+	sprintf(ret, "Hello %s!\n", name);
+
+	RETURN_STRING(ret, 0);
+}
+
 zend_function_entry helloworld_functions[] = {
 	PHP_FE(helloworld, NULL)
 	PHP_FE(helloearth, NULL)
+	PHP_FE(hello, NULL)
 	{NULL, NULL, NULL}
 };
 
