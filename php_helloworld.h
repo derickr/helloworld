@@ -17,5 +17,6 @@ extern zend_module_entry helloworld_module_entry;
 #endif
 
 PHP_FUNCTION(helloworld);
+PHP_FUNCTION(helloearth);
 
 #endif

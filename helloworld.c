@@ -15,8 +15,14 @@ PHP_FUNCTION(helloworld)
 	php_printf("Hello World!\n");
 }
 
+PHP_FUNCTION(helloearth)
+{
+	RETURN_STRINGL("Hello Earth!\n", 13, 1);
+}
+
 zend_function_entry helloworld_functions[] = {
 	PHP_FE(helloworld, NULL)
+	PHP_FE(helloearth, NULL)
 	{NULL, NULL, NULL}
 };
 
